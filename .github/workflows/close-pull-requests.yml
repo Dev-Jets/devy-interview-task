@@ -13,6 +13,10 @@ permissions:
 
 jobs:
   close:
+    # Only on the task repo itself: repos made from it with "Use this template"
+    # (and forks with Actions on) copy this file, and their own pull requests
+    # must stay open.
+    if: github.repository == 'Dev-Jets/devy-interview-task'
     runs-on: ubuntu-latest
     steps:
       - name: Close with a note

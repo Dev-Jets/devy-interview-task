@@ -4,8 +4,8 @@
 > Every task built here is a practice exercise that Devy writes for a job you are preparing for.
 > It is **not** an assignment from that company, and it is not part of any hiring process there.
 
-This repository is your workspace for Devy's technical tasks. You fork it **once**, then build each
-task on its own branch in your fork. Devy finds your branch, reviews your code, and then holds a
+This repository is your workspace for Devy's technical tasks. Either fork it **once** and build each
+task on its own branch, or create a fresh repo from it for each task with **Use this template**. Devy finds your branch, reviews your code, and then holds a
 practice tech interview with you about what you built.
 
 Your task brief (what to build, the deadline, your branch name and your task token) is in the
@@ -27,12 +27,22 @@ Your task brief (what to build, the deadline, your branch name and your task tok
 
 ## Quick start: your first task
 
-**1. Fork this repository**
+Choose **one** way to set up:
+
+| | Option A: Fork | Option B: Use this template |
+| --- | --- | --- |
+| What you get | One fork for all your Devy tasks, one branch per task | A fresh repo of your own for this task only |
+| Repo name | `devy-interview-task` (keep it) | **Your task code**, exactly: `devyai-task-<code>` |
+| Where you work | The branch `devyai-task-<code>` | `main` (no branch needed) |
+
+### Option A: Fork
+
+**A1. Fork this repository**
 
 Click **Fork** (top right), keep the name **`devy-interview-task`**, and leave
 **"Copy the `main` branch only"** ticked.
 
-**2. Clone your fork and create your task branch**
+**A2. Clone your fork and create your task branch**
 
 Use the exact branch name from your brief (`devyai-task-` followed by 6 characters):
 
@@ -41,6 +51,30 @@ git clone https://github.com/<your-github-username>/devy-interview-task.git
 cd devy-interview-task
 git checkout -b devyai-task-<code>
 ```
+
+### Option B: Use this template
+
+**B1. Create your task repo**
+
+Click **Use this template → Create a new repository** (top right), or open
+[github.com/Dev-Jets/devy-interview-task/generate](https://github.com/Dev-Jets/devy-interview-task/generate). Then:
+
+- **Owner:** your GitHub account (the one you gave Devy)
+- **Repository name:** your task code, exactly `devyai-task-<code>`. This is how Devy finds it.
+- **Visibility:** **Public** (Devy can't read private repos)
+- Leave "Include all branches" unticked
+
+**B2. Clone it**
+
+```bash
+git clone https://github.com/<your-github-username>/devyai-task-<code>.git
+cd devyai-task-<code>
+```
+
+You work on `main`. If you push with the commands below, use plain `git push` instead of
+`git push -u origin devyai-task-<code>`.
+
+### Then, for both options
 
 **3. Add your task token**
 
@@ -55,20 +89,20 @@ Open `.devy/task.json` and paste the full task token from your brief:
 
 **4. Push right away**
 
-This lets Devy find your branch before you start building:
+This lets Devy find your work before you start building:
 
 ```bash
 git add .devy/task.json
 git commit -m "Start Devy task"
-git push -u origin devyai-task-<code>
+git push -u origin devyai-task-<code>   # Option B: git push
 ```
 
 Devy checks every few minutes and shows **"We found your branch"** in the app, usually within 10 minutes.
 
 **5. Build the task**
 
-Work on this branch, commit as you go, and fill in the four sections under
-[Your submission](#your-submission) before you finish.
+Commit as you go, and fill in the four sections under [Your submission](#your-submission) before you
+finish.
 
 **6. Hand it in**
 
@@ -93,8 +127,8 @@ Or tap **I'm done** in the Devy app. Either way, Devy locks the commit you hande
 
 ## Your next tasks
 
-Already forked this repository for an earlier task? Skip steps 1 and 2. Start the new branch from a
-fresh `main`, then follow steps 3 to 6:
+**Option A (fork):** you already have your fork. Start the new branch from a fresh `main`, then follow
+steps 3 to 6:
 
 ```bash
 cd devy-interview-task
@@ -103,13 +137,17 @@ git pull
 git checkout -b devyai-task-<new code>
 ```
 
-Each task has its own branch, its own token and its own copy of this README.
+**Option B (template):** create a new repo from the template for the new task, named with the new
+task code (steps B1 and B2), then follow steps 3 to 6.
+
+Each task has its own branch (or repo), its own token and its own copy of this README.
 
 ---
 
 ## The task file: `.devy/task.json`
 
-This file is how Devy recognises your work. It lives on your task branch.
+This file is how Devy recognises your work. It lives on your task branch (Option A) or on `main` of
+your task repo (Option B).
 
 | Field        | Value                                                                          |
 | ------------ | ------------------------------------------------------------------------------ |
@@ -127,8 +165,9 @@ This file is how Devy recognises your work. It lives on your task branch.
 | Rule | Why |
 | ---- | --- |
 | One branch per task, with the **exact** name from your brief | Devy looks for that branch name in your fork |
+| Option B: name your repo with the **exact** task code (`devyai-task-<code>`) | Devy looks for a repo with that name on your account |
 | **No pull requests** to this repository | Your work stays in your fork; pull requests here are closed automatically |
-| Keep your fork **public** until your report is ready | Devy reads your code from your public fork |
+| Keep your fork or task repo **public** until your report is ready | Devy reads your code from your public repo |
 | Never reuse a task token | Each token belongs to one task |
 
 Work pushed after the deadline is still accepted, marked as late.
@@ -166,16 +205,19 @@ to explain every part of your code.
 
 Check that:
 
-- your fork is **public** and still named `devy-interview-task`;
-- the branch name matches your brief **exactly** (`devyai-task-` plus 6 characters);
+- **Option A:** your fork is **public** and still named `devy-interview-task`, and the branch name matches your
+  brief **exactly** (`devyai-task-` plus 6 characters);
+- **Option B:** your repo is **public**, was created with **Use this template**, and is named with your task
+  code **exactly** (`devyai-task-<code>`);
 - `.devy/task.json` holds the **full** token, as valid JSON;
-- you **pushed** the branch (`git push -u origin devyai-task-<code>`).
+- you **pushed** your work.
 
-You can also paste your fork's link in the Devy app with **Paste repo link**.
+Named your repo differently? Paste its link in the Devy app with **Paste repo link**; Devy then
+finds it under any name.
 </details>
 
 <details>
-<summary><strong>I forked before and my <code>main</code> is out of date</strong></summary>
+<summary><strong>Option A: I forked before and my <code>main</code> is out of date</strong></summary>
 
 On GitHub, open your fork and click **Sync fork**, or run:
 
@@ -195,7 +237,7 @@ Push your work anyway and set `"status": "done"`. It is still reviewed, marked a
 <details>
 <summary><strong>Can I delete my fork afterwards?</strong></summary>
 
-Yes, once your report is ready in Devy.
+Yes, your fork or task repo, once your report is ready in Devy.
 </details>
 
 Any other question about your task: ask Devy in the app.
@@ -204,7 +246,7 @@ Any other question about your task: ask Devy in the app.
 
 # Your submission
 
-Fill in the four sections below on your task branch. Devy reads them during the review, so keep
+Fill in the four sections below on your task branch (or task repo). Devy reads them during the review, so keep
 the headings exactly as they are. Replace the comments with your own text.
 
 ## Approach
